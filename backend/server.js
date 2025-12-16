@@ -8,9 +8,21 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// ✅ Root route (باش ما يطلعش Cannot GET /)
+// ✅ Root route (HTML page باش ما يطلعش Error في Classroom)
 app.get("/", (req, res) => {
-  res.send("API is running");
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="fr">
+      <head>
+        <meta charset="UTF-8">
+        <title>Mini Chat Backend</title>
+      </head>
+      <body>
+        <h2>Mini Chat Backend</h2>
+        <p>API is running.</p>
+      </body>
+    </html>
+  `);
 });
 
 // In-memory messages storage
